@@ -88,7 +88,7 @@ public class BinaryTree <T extends Comparable<T>> implements Tree<T>{
     public List<T> preOrder() {
         List<T> preOrderElements = new LinkedList<>();
         preOrderNavigator(this.root, preOrderElements);
-        return null;
+        return preOrderElements;
     }
     private void preOrderNavigator(TreeNode<T> rootNode, List<T> elements){
         if (rootNode == null){
@@ -104,7 +104,7 @@ public class BinaryTree <T extends Comparable<T>> implements Tree<T>{
     public List<T> inOrder() {
         List<T> inOrderElements = new LinkedList<>();
         inOrderNavigator(this.root, inOrderElements);
-        return null;
+        return inOrderElements;
     }
     private void inOrderNavigator(TreeNode<T> rootNode, List<T> elements){
         if (rootNode == null){
@@ -120,7 +120,7 @@ public class BinaryTree <T extends Comparable<T>> implements Tree<T>{
     public List<T> postOrder() {
         List<T> postOrderElements = new LinkedList<>();
         postOrderNavigator(this.root, postOrderElements);
-        return null;
+        return postOrderElements;
     }
     private void postOrderNavigator(TreeNode<T> rootNode, List<T> elements){
         if (rootNode == null){
