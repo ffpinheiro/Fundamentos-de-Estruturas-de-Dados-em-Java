@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+
 public class LinkedList<T> implements List<T>{
 
     private Node<T> head;
@@ -98,5 +100,32 @@ public class LinkedList<T> implements List<T>{
     public void clear() {
         this.head = null;
         this.size = 0;
+    }
+
+    @Override
+    public T[] toArray() {
+        T[] objects = (T[]) new Object[size];
+        Node<T> auxNode = head;
+        int index = 0;
+        while(auxNode != null){
+            objects[index] = auxNode.getInfo();
+            auxNode = auxNode.getNext();
+            index++;
+        }
+        return objects;
+    }
+
+    @Override
+    public T[] toArray(Class<?> type) {
+        @SuppressWarnings("unchecked")
+        T[] objects = (T[]) Array.newInstance(type, size);
+        Node<T> auxNode = head;
+        int index = 0;
+        while(auxNode != null){
+            objects[index] = auxNode.getInfo();
+            auxNode = auxNode.getNext();
+            index++;
+        }
+        return objects;
     }
 }

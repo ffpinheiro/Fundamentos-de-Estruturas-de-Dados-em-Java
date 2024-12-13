@@ -6,4 +6,6 @@ public interface List <T> {
     int size();
     T get(int index);
     void clear();
+    T[] toArray();
+    T[]toArray(Class<?> type);
 }

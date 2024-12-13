@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Entry <K,V> {
     private K key;
     private V value;
@@ -20,5 +22,21 @@ public class Entry <K,V> {
 
     public void setValue(V value) {
         this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Entry<?, ?> entry = (Entry<?, ?>) o;
+        return Objects.equals(key, entry.key);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(key);
+    }
+    @Override
+    public String toString(){
+        return key.toString() + "=" + value.toString();
     }
 }
